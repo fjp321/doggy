@@ -2,7 +2,8 @@ import sys
 import numpy as np
 import scipy as sp
 import pandas as pd
-import lxml
-db = open('main-db.xml', 'w')
-db.write('<?xml version=\"1.0\" encoding=\"utf-8\"?>\n')
+from lxml import etree as et
+root=et.Element("recipes")
+db=open('recipes.xml','w')
+db.write(et.tostring(root, pretty_print=True, encoding='utf-8').decode('utf-8'))
 db.close()
