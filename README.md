@@ -12,6 +12,6 @@ Recipe object creator, adding recipes to a sql database.
 
 ## Thanks for visiting this page
 
-This code is guranteed to work on ubuntu 20.04, if you would like to fork to make the gui compatible with your own machine feel free to!
+This code is guranteed to work with a gtk gui, if you would like to fork to make the gui compatible with your own machine feel free to!
 
 ## Have a great day
