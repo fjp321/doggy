@@ -1,9 +1,19 @@
 import sys
-import numpy as np
-import scipy as sp
+import json
 import pandas as pd
-from lxml import etree as et
-root=et.Element("recipes")
-db=open('recipes.xml','w')
-db.write(et.tostring(root, pretty_print=True, encoding='utf-8').decode('utf-8'))
-db.close()
+
+# initialize hash table of usable ingredients, size 5000
+
+# write hash table to usable_ingredients as binary
+
+# initialize list of strings of acceptable types
+
+# write list of strings into acceptable_types as binary
+
+# initialize dataframe with name, type, ingredients, and recipe
+df = pd.DataFrame(columns = ["name", "type", "ingredients", "recipe"])
+
+#write dataframe to database to data.json
+database = open("data.json", "w")
+database.write(df.to_json())
+database.close()

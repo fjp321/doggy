@@ -1,6 +1,5 @@
-rm recipes.xml
+rm data.json
 python3 init-db.py
-for i in $(seq 1 $1)
-do
-    python3 add-recipe.py ingredients.txt recipe.txt
-done
+python3 add-element.py ingredients.txt recipe.txt
+python3 add-element.py ingredients.txt recipe.txt
+
