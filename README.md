@@ -4,7 +4,6 @@ Recipe object creator, adding recipes to a sql database.
 
 ## Features
 
-* A GUI
 * Ingredient database, with associated cost and tags for type and theme of meal
 * Grocery list genereation
     * Can specify when to have particular meal
@@ -12,6 +11,10 @@ Recipe object creator, adding recipes to a sql database.
 
 ## Thanks for visiting this page
 
-This code is guranteed to work with a gtk gui, if you would like to fork to make the gui compatible with your own machine feel free to!
+Also
 
 ## Have a great day
+
+## Contributors
+fjp321
+Spencer-Potter
