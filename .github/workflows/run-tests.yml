@@ -7,8 +7,8 @@ jobs:
       runs-on: ubuntu-latest
       container: python:3.10.4
       steps:
-        -uses: actions/checkout@v2
-        -name: run-tests
-        -run:
+        - uses: actions/checkout@v2
+        - name: run-tests
+        - run:
           pip install -r requirements.txt
           python -m pytest
