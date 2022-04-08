@@ -32,13 +32,14 @@ def print_db():
     print(database)
     
 def print_types():
-    types = open("data/types.csv")
-    csv_reader = csv.reader(types, delimiter=' ')
+    types_file = open("data/types.csv")
+    csv_reader = csv.reader(types_file, delimiter=' ')
     for row in csv_reader:
         print(row + ',')
   
 def print_ingredients():
-    print("placeholder")
+    ingredients_file = open("data/ingredients.json")
+    print(json.load(ingredients_file))
   
 def add_recipe():
     print("placeholder")
