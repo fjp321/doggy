@@ -17,14 +17,14 @@ def init_types():
 
     # touch empty file for types, save as csv
     types = open("data/types.csv")
-    typesonclose()
+    types.close()
 
 def init_ingredients():
     ingredients_dict = []
 
     # touch empty file for ingredients, save as json
     ingredients = open("data/ingredients.json")i
-    ingrtedients.write(json.dumps(ingredients_dict))
+    ingredients.write(json.dumps(ingredients_dict))
     ingredients.close()
 
 def print_db():
@@ -32,20 +32,32 @@ def print_db():
     print(database)
     
 def print_types():
-    print("placeholder")
+    types = open("data/types.csv")
+    csv_reader = csv.reader(types, delimiter=' ')
+    for row in csv_reader:
+        print(row + ',')
   
 def print_ingredients():
     print("placeholder")
   
-def update_db():
+def add_recipe():
     print("placeholder")
 
-def update_types();
+def add_type();
     print("placeholder")
   
-def update_ingredients():
+def add_ingredient():
     print("placeholder")
-  
+
+def del_recipe():
+    print("placeholder")
+
+def del_type():
+    print("placeholder")
+
+def del_ingredient():
+    print("placeholder")
+
 def valid_ingredient():
     print("placeholder")
   
