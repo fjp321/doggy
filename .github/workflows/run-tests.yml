@@ -11,4 +11,5 @@ jobs:
         - name: run-tests
           run: |
             pip install -r requirements.txt
+            pip3 install pytest
             python -m pytest
