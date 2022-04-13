@@ -3,52 +3,92 @@ import json
 import csv
 import pandas as pd
 
+no_error_code=0
+input_error_code=-1
+already_exists_error_code=-2
+
+recipes_location="data/recipes.json"
+ingredients_location="data/ingredients.json"
+types_location="data/types.csv"
+
+# creates pandas dataframe with needed columns and save dataframe to json
 def init_db():
     # initialize dataframe with name, type, ingredients, and recipe
-    df = pd.DataFrame(columns = ["name", "type", "ingredients", "recipe"])
+    recipes_df = pd.DataFrame(columns = ["name", "type", "ingredients", "recipe"])
 
     #write dataframe to database to data.json
-    database = open("data/data.json", "w")
-    database.write(df.to_json())
-    database.close()
+    recipes_file = open(recipes_location, 'w')
+    recipes_file.write(df.to_json())
+    recipes_file.close()
 
+# saves files for types as csv
 def init_types():
-    types_list = []
-
     # touch empty file for types, save as csv
-    types = open("data/types.csv")
-    types.close()
+    types_file = open(types_location, 'w')
+    types_file.close()
 
+# saves ingredients dictionary to json file
 def init_ingredients():
-    ingredients_dict = []
-
     # touch empty file for ingredients, save as json
-    ingredients = open("data/ingredients.json")i
-    ingredients.write(json.dumps(ingredients_dict))
-    ingredients.close()
+    ingredients_file = open(ingredients_location, 'w')
+    ingredients_file.write(json.dumps(ingredients_dict))
+    ingredients_file.close()
 
-def print_db():
-    database = pd.read_json("data/data.json")
-    print(database)
+# helper function to print recipes file
+def print_recipes():
+    recipes_df = pd.read_json(recipes_location)
+    print(recipes_df)
     
+# helper function to print types list
 def print_types():
-    types_file = open("data/types.csv")
+    types_file = open(types_location, 'r')
     csv_reader = csv.reader(types_file, delimiter=' ')
     for row in csv_reader:
         print(row + ',')
+    types_file.close()
   
+# helper function to print ingredients dictionary
 def print_ingredients():
-    ingredients_file = open("data/ingredients.json")
+    ingredients_file = open(ingredients_location, 'r')
     print(json.load(ingredients_file))
-  
-def add_recipe():
+
+# helper function to check if recipe is in recipe df
+def is_recipe(input_recipe):
     print("placeholder")
 
-def add_type();
+def is_type(input_type):
+    if(!isInstance(input_type,str)):
+        print("input is not a string")
+        return input_error_code
+    types_file = open(types_location,'r')
+    csv_reader = csv.reader(types_file, delimiter=' ')
+
+
+def is_ingredient(input_ingredient):
     print("placeholder")
-  
+
+# opens json recipes file and reads into df, add recipe based on inputs string type, string dictionary ingredients, and string list steps, and saves df to json file
+def add_recipe(type_input, ingredients_input, steps_input):
+    print("placeholder")
+
+# opens csv and reads into list, then appends input string type to list and saves as csv
+# will raise exception if input is not string
+def add_type(input_type);
+    if(!isInstance(input_type,str)):
+        print("input is not string")
+        return input_error_code
+    if(is_type(input_type)):
+        print("input already in types.csv")
+        return already_exists_error_code
+    types_file = open(types_location,'a')
+    types_file.write(input_type)    
+    types_file.close()
+    return no_error_code
+
+# open ingredients json and reads into dictionary, add elements based on inputs string ingredient, string measurement, then saves to json file
 def add_ingredient():
     print("placeholder")
+
 
 def del_recipe():
     print("placeholder")
