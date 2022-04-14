@@ -3,16 +3,19 @@ import unittest
 # appending path to src/doggy.py
 # code needed below
 # import sys
-# sys.path.append("../src")
-# import doggy.py as doggy
+# sys.path.append('../src')
+# import doggy
+import pandas as pd
 
 import src.doggy as doggy
 
 
-
 class MyTestCase(unittest.TestCase):
-    def init_database(self):
+    def test_init_database(self):
         doggy.init_db()
+        empty_dataframe = pd.DataFrame(columns=["name", "cuisine", "ingredients", "image"])
+        self.assertEqual(doggy.print_database(), empty_dataframe.to_string())
+
 
 
 
