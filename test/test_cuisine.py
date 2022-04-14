@@ -43,6 +43,7 @@ class MyTestCase(unittest.TestCase):
         doggy.add_cuisine("american")
         doggy.add_cuisine("asian")
         doggy.del_cuisine("american")
+        doggy.del_cuisine("american")
         doggy.del_cuisine("asian")
         example_cuisine = []
         self.assertEqual(doggy.get_cuisines(), example_cuisine)

@@ -13,7 +13,7 @@ default_ingredients_location = "ingredients.json"
 default_cuisines_location = "cuisines.csv"
 
 
-# creates pandas dataframe with needed columns and save dataframe to json
+# creates pandas dataframe with needed columns to represent database of recipes and save dataframe to json
 def init_db(file_location=default_database_location):
     # initialize dataframe with name, cuisine, ingredients, and recipe
     database_df = pd.DataFrame(columns=["name", "cuisine", "ingredients", "image"])
@@ -24,26 +24,26 @@ def init_db(file_location=default_database_location):
     database_file.close()
 
 
-# saves files for cuisines as csv
+# saves cuisines csv to initial loaction
 def init_cuisines(file_location=default_cuisines_location):
     # touch empty file for cuisines, save as csv
     cuisines_file = open(file_location, 'w')
     cuisines_file.close()
 
 
-# saves ingredients dictionary to json file
+# saves ingredients dictionary to default location
 def init_ingredients(file_location=default_ingredients_location):
     # touch empty file for ingredients, save as json
     ingredients_file = open(file_location, 'w')
     ingredients_file.close()
 
 
-# helper function to print recipes file
+# helper function to return recipes database as string
 def print_database(file_location=default_database_location):
     return pd.read_json(file_location).to_string()
 
 
-# helper function to print cuisines list
+# helper function to return cuisines list
 def get_cuisines(file_location=default_cuisines_location):
     cuisines_file = open(file_location, 'r')
     csv_reader = csv.reader(cuisines_file, delimiter=',')
@@ -54,7 +54,7 @@ def get_cuisines(file_location=default_cuisines_location):
     return cuisine_list
 
 
-# helper function to print ingredients dictionary
+# helper function to return ingredients dictionary
 def get_ingredients(file_location=default_ingredients_location):
     ingredients_file = open(file_location, 'r')
     # added try catch for error handling on empty json file
@@ -66,11 +66,12 @@ def get_ingredients(file_location=default_ingredients_location):
     return ingredients_dict
 
 
-# helper function to check if recipe is in recipe df
+# helper function to check if recipe name is in recipe df
 def contain_name(input_name):
     print("placeholder")
 
 
+# helper function that checks if cuisine is already saved in cuisine list, returns bool
 def contain_cuisine(input_cuisine, file_location=default_cuisines_location):
     if not (isinstance(input_cuisine, str)):
         print("input is not a string")
@@ -78,6 +79,8 @@ def contain_cuisine(input_cuisine, file_location=default_cuisines_location):
     cuisine_list = get_cuisines(file_location=file_location)    
     return input_cuisine in cuisine_list
 
+
+# helper function that checks if ingredient is in ingredients dictionary keys list
 def contain_ingredient(input_ingredient, file_location=default_ingredients_location):
     ingredients_dict = get_ingredients(file_location=file_location)
     return input_ingredient in ingredients_dict.keys()
@@ -89,7 +92,6 @@ def add_recipe(input_cuisine, input_name, input_image, input_ingredients):
 
 
 # opens csv and reads into list, then appends input string cuisine to list and saves as csv
-# will raise exception if input is not string
 def add_cuisine(input_cuisine,file_location=default_cuisines_location):
     if not isinstance(input_cuisine, str):
         print("input is not string")
@@ -98,11 +100,11 @@ def add_cuisine(input_cuisine,file_location=default_cuisines_location):
         print("input already in cuisines.csv")
         return already_exists_error_code
     # adjust input string if non empty list
-    input_string = input_cuisine
-    if len(get_cuisines(file_location=file_location)) != 0:
-        input_string = "," + input_string
     cuisines_file = open(file_location, 'a')
-    cuisines_file.write(input_string)
+    if len(get_cuisines(file_location=file_location)) != 0:
+        cuisines_file.write("," + input_cuisine)
+    else:
+        cuisines_file.write(input_cuisine)
     cuisines_file.close()
     return no_error_code
 
@@ -129,6 +131,7 @@ def del_recipe():
     print("placeholder")
 
 
+# opens cuisine list, checks if input is in list, then removes it and rewrites list to csv
 def del_cuisine(input_cuisine, file_location=default_cuisines_location):
     if not isinstance(input_cuisine,str):
         print("input is not string")
@@ -147,8 +150,22 @@ def del_cuisine(input_cuisine, file_location=default_cuisines_location):
     cuisine_file.close()
     return no_error_code
 
-def del_ingredient():
-    print("placeholder")    
+
+# opens ingredients dictionary, checks if input is in dictionary, then removes it and rewrites json
+def del_ingredient(input_ingredient, file_location=default_ingredients_location):
+    if not isinstance(input_ingredient,str):
+        print("input is not string")
+        return input_error_code
+    if not contain_ingredient(input_ingredient, file_location=file_location):
+        print("ingredient not found, no deletion needed")
+        return does_not_exist_error_code
+    ingredient_dict = get_ingredients(file_location=file_location)
+    ingredient_dict.pop(input_ingredient)
+    ingredient_file = open(file_location, 'w')
+    if not ingredient_dict:
+        ingredient_file.write(json.dumps(ingredient_dict))
+    ingredient_file.close()
+    return no_error_code
 
 def update_ingredient():
     print("placeholder")
