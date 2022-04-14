@@ -56,8 +56,13 @@ def get_cuisines(file_location=default_cuisines_location):
 # helper function to print ingredients dictionary
 def get_ingredients(file_location=default_ingredients_location):
     ingredients_file = open(file_location, 'r')
-    
+    # added try catch for error handling on empty json file
+    try:
+        ingredients_dict = json.load(ingredients_file)   
+    except:
+        ingredients_dict = {}
     ingredients_file.close()
+    return ingredients_dict
 
 
 # helper function to check if recipe is in recipe df
@@ -73,7 +78,8 @@ def contain_cuisine(input_cuisine, file_location=default_cuisines_location):
     return input_cuisine in cuisine_list
 
 def contain_ingredient(input_ingredient):
-    print("placeholder")
+    ingredients_dict = get_ingredients()
+    return input_ingredient in ingredients_dict.keys()
 
 
 # opens json recipes file and reads into df, add recipe based on inputs string cuisine, string dictionary ingredients, and string list steps, and saves df to json file
@@ -101,8 +107,21 @@ def add_cuisine(input_cuisine,file_location=default_cuisines_location):
 
 
 # open ingredients json and reads into dictionary, add elements based on inputs string ingredient, string measurement, then saves to json file
-def add_ingredient():
-    print("placeholder")
+def add_ingredient(input_ingredient, input_measurement, file_location=default_ingredients_location):
+    if not isinstance(input_ingredient,str) or not isinstance(input_measurement,str):
+        print("input is not string")
+        return input_error_code
+    if contain_ingredient(input_ingredient):
+        print("input_ingredient already exists, try update_measurement(input_ingredient, input_measurement) if you want to update measurement tied to ingredient")
+        return already_exists_error_code
+    # open file and load into local dictionary
+    ingredients_dict = get_ingredients()
+    ingredients_dict[input_ingredient] = input_measurement
+    ingredients_file = open(file_location, "w")
+    ingredients_file.write(json.dumps(ingredients_dict))
+    ingredients_file.close()
+    return no_error_code
+    
 
 
 def del_recipe():
