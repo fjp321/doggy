@@ -38,6 +38,14 @@ class MyTestCase(unittest.TestCase):
         example_cuisine = ["american", "asian"]
         self.assertEqual(doggy.get_cuisines(), example_cuisine)
    
+    def test_del_cuisine(self):
+        doggy.init_cuisines()
+        doggy.add_cuisine("american")
+        doggy.add_cuisine("asian")
+        doggy.del_cuisine("american")
+        doggy.del_cuisine("asian")
+        example_cuisine = []
+        self.assertEqual(doggy.get_cuisines(), example_cuisine)
 
     def test_something(self):
         self.assertEqual(True, True)  # add assertion here
