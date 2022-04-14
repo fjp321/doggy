@@ -16,7 +16,7 @@ class MyTestCase(unittest.TestCase):
         doggy.init_db()
         empty_dataframe = pd.DataFrame(columns=["name", "cuisine", "ingredients", "image"])
         self.assertEqual(doggy.print_database(), empty_dataframe.to_string())
-        self.asserEqual(True, exists("data/database.json"))
+        self.assertEqual(True, exists("data/database.json"))
 
     def local_init_database(self):
         doggy.database_location = "../data/database.json"
