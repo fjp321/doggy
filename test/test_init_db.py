@@ -6,9 +6,11 @@ import unittest
 # sys.path.append('../src')
 # import doggy
 import pandas as pd
-
 import src.doggy as doggy
+import sys
+sys.path.append('../')
 
+print("hi")
 
 class MyTestCase(unittest.TestCase):
     def test_init_database(self):

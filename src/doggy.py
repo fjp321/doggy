@@ -7,9 +7,9 @@ no_error_code = 0
 input_error_code = -1
 already_exists_error_code = -2
 
-database_location = "../data/database.json"
-ingredients_location = "../data/ingredients.json"
-cuisines_location = "../data/cuisines.csv"
+database_location = "data/database.json"
+ingredients_location = "data/ingredients.json"
+cuisines_location = "data/cuisines.csv"
 
 
 # creates pandas dataframe with needed columns and save dataframe to json
