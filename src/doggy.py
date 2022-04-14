@@ -8,8 +8,8 @@ input_error_code = -1
 already_exists_error_code = -2
 
 default_database_location = "database.json"
-default_ingredients_location = "data/ingredients.json"
-default_cuisines_location = "data/cuisines.csv"
+default_ingredients_location = "ingredients.json"
+default_cuisines_location = "cuisines.csv"
 
 
 # creates pandas dataframe with needed columns and save dataframe to json
@@ -43,18 +43,21 @@ def print_database(file_location=default_database_location):
 
 
 # helper function to print cuisines list
-def print_cuisines(file_location=default_cuisines_location):
+def get_cuisines(file_location=default_cuisines_location):
     cuisines_file = open(file_location, 'r')
-    csv_reader = csv.reader(cuisines_file, delimiter=' ')
-    for row in csv_reader:
-        print(row + ',')
+    csv_reader = csv.reader(cuisines_file, delimiter=',')
+    cuisine_list = list(csv_reader)
     cuisines_file.close()
+    if len(cuisine_list) != 0:
+        cuisine_list = cuisine_list[0]
+    return cuisine_list
 
 
 # helper function to print ingredients dictionary
-def print_ingredients(file_location=default_ingredients_location):
+def get_ingredients(file_location=default_ingredients_location):
     ingredients_file = open(file_location, 'r')
-    print(json.load(ingredients_file))
+    
+    ingredients_file.close()
 
 
 # helper function to check if recipe is in recipe df
@@ -65,10 +68,9 @@ def contain_name(input_name):
 def contain_cuisine(input_cuisine, file_location=default_cuisines_location):
     if not (isinstance(input_cuisine, str)):
         print("input is not a string")
-        return input_error_code
-    cuisines_file = open(file_location, 'r')
-    csv_reader = csv.reader(cuisines_file, delimiter=' ')
-
+        return input_error_code # maybe change to false for this function
+    cuisine_list = get_cuisines()    
+    return input_cuisine in cuisine_list
 
 def contain_ingredient(input_ingredient):
     print("placeholder")
@@ -85,11 +87,15 @@ def add_cuisine(input_cuisine,file_location=default_cuisines_location):
     if not isinstance(input_cuisine, str):
         print("input is not string")
         return input_error_code
-    if (contain_cuisine(input_cuisine)):
+    if contain_cuisine(input_cuisine):
         print("input already in cuisines.csv")
         return already_exists_error_code
+    # adjust input string if non empty list
+    input_string = input_cuisine
+    if len(get_cuisines()) != 0:
+        input_string = "," + input_string
     cuisines_file = open(file_location, 'a')
-    cuisines_file.write(input_cuisine)
+    cuisines_file.write(input_string)
     cuisines_file.close()
     return no_error_code
 
