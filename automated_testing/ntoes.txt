@@ -1,0 +1,3 @@
+workflow event should be a push
+runs on ubuntu-latest
+container ??python??
