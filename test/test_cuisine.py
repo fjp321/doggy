@@ -1,10 +1,6 @@
 import unittest
-# (for ubuntu users, change import for doggy)
-# appending path to src/doggy.py
-# code needed below
 import sys
 sys.path.append('../')
-# import doggy
 import pandas as pd
 import src.doggy as doggy
 from os.path import exists

@@ -167,8 +167,20 @@ def del_ingredient(input_ingredient, file_location=default_ingredients_location)
     ingredient_file.close()
     return no_error_code
 
-def update_ingredient():
-    print("placeholder")
+def update_ingredient(input_ingredient, input_measurement, file_location=default_ingredients_location):
+    if not isinstance(input_ingredient,str):
+        print("input is not string")
+        return input_error_code
+    if not contain_ingredient(input_ingredient, file_location=file_location):
+        print("ingredient not found, adding instead")
+        return add_ingredient(input_ingredient, input_measurement, file_location=file_location)
+    ingredient_dict = get_ingredients(file_location=file_location)
+    ingredient_dict[input_ingredient] = input_measurement
+    ingredient_file = open(file_location, 'w')
+    ingredient_file.write(json.dumps(ingredient_dict))
+    ingredient_file.close()
+    return no_error_code
+
 
 def get_database(file_location=default_database_location):
     return pd.read_json(file_location)

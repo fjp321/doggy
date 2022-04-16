@@ -50,6 +50,15 @@ class MyTestCase(unittest.TestCase):
         self.assertEqual(doggy.get_ingredients(), example_ingredient)
 
 
+    def test_update_ingredient(self):
+        doggy.init_ingredients()
+        doggy.add_ingredient("cereal", "cup")
+        doggy.add_ingredient("milk", "cup")
+        doggy.update_ingredient("cereal", "grams")
+        doggy.update_ingredient("milk", "ml")
+        example_ingredient = {"cereal" : "grams", "milk" : "ml"}
+        self.assertEqual(doggy.get_ingredients(), example_ingredient)
+
     def test_something(self):
         self.assertEqual(True, True)  # add assertion here
 
