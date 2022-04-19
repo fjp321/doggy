@@ -2,8 +2,6 @@
 
 ## What is Doggy
 
-## Why is it named Doggy?
-
 ## Usage
 
 ## Design Choices
