@@ -1,19 +1,20 @@
-## Description
+# Doggy Recipes Generation
 
-Recipe object creator, adding recipes to a sql database. 
+## What is Doggy
 
-## Features
+## Why is it named Doggy?
 
-* Ingredient database, with associated cost and tags for type and theme of meal
-* Grocery list genereation
-    * Can specify when to have particular meal
-    * Can request theme for meals, i.e. latin american, korean, etc.
+## Usage
 
-## Thanks for visiting this page
+## Design Choices
 
-Also
+### Why json instead of SQL
 
-## Have a great day
+### Why no windows support
+
+### Why no GUI
+
+## Resources
 
 ## Contributors
 fjp321
