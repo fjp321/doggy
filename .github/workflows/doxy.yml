@@ -1,2 +1,12 @@
-name: Doxygen Action
-  uses: mattnotmitt/doxygen-action@1.9.3
+name: Doxyggen
+
+on: [push, pull_request]
+
+jobs:
+        RunDoxygen:
+                runs-on: ubuntu-latest
+                container: python3:9.7
+                steps:
+                        uses: actions/checkout@v2
+                        run:
+                                doxygen Doxyfile
