@@ -96,27 +96,27 @@ Functions</h2></td></tr>
 <tr class="memitem:adce8879ecb21ba3366cb681a827573fa"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="doggy_8py.html#adce8879ecb21ba3366cb681a827573fa">doggy.get_ingredients</a> (file_location=default_ingredients_location)</td></tr>
 <tr class="memdesc:adce8879ecb21ba3366cb681a827573fa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Helper function to return ingredients dictionary.  <a href="doggy_8py.html#adce8879ecb21ba3366cb681a827573fa">More...</a><br /></td></tr>
 <tr class="separator:adce8879ecb21ba3366cb681a827573fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae7189d1e3925f8f4d3799a5d2db69f00"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="doggy_8py.html#ae7189d1e3925f8f4d3799a5d2db69f00">doggy.contain_name</a> (input_name)</td></tr>
-<tr class="memdesc:ae7189d1e3925f8f4d3799a5d2db69f00"><td class="mdescLeft">&#160;</td><td class="mdescRight">Helper function that will check if a recipe name already exists in the database.  <a href="doggy_8py.html#ae7189d1e3925f8f4d3799a5d2db69f00">More...</a><br /></td></tr>
-<tr class="separator:ae7189d1e3925f8f4d3799a5d2db69f00"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a23d4adb26ae5202c614f73361ce2bd28"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="doggy_8py.html#a23d4adb26ae5202c614f73361ce2bd28">doggy.contain_name</a> (input_name, file_location=default_database_location)</td></tr>
+<tr class="memdesc:a23d4adb26ae5202c614f73361ce2bd28"><td class="mdescLeft">&#160;</td><td class="mdescRight">Helper function that will check if a recipe name already exists in the database.  <a href="doggy_8py.html#a23d4adb26ae5202c614f73361ce2bd28">More...</a><br /></td></tr>
+<tr class="separator:a23d4adb26ae5202c614f73361ce2bd28"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae60e60461d7ada58735c26d28db53f97"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="doggy_8py.html#ae60e60461d7ada58735c26d28db53f97">doggy.contain_cuisine</a> (input_cuisine, file_location=default_cuisines_location)</td></tr>
 <tr class="memdesc:ae60e60461d7ada58735c26d28db53f97"><td class="mdescLeft">&#160;</td><td class="mdescRight">Helper function that checks if cuisine is already saved in cuisine list.  <a href="doggy_8py.html#ae60e60461d7ada58735c26d28db53f97">More...</a><br /></td></tr>
 <tr class="separator:ae60e60461d7ada58735c26d28db53f97"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9eda55d46af14ab4966300977fe66116"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="doggy_8py.html#a9eda55d46af14ab4966300977fe66116">doggy.contain_ingredient</a> (input_ingredient, file_location=default_ingredients_location)</td></tr>
 <tr class="memdesc:a9eda55d46af14ab4966300977fe66116"><td class="mdescLeft">&#160;</td><td class="mdescRight">Helper function that checks if ingredient is in ingredients dictionary keys list.  <a href="doggy_8py.html#a9eda55d46af14ab4966300977fe66116">More...</a><br /></td></tr>
 <tr class="separator:a9eda55d46af14ab4966300977fe66116"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac0a6d11d1ca54757b79b063c598d7255"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="doggy_8py.html#ac0a6d11d1ca54757b79b063c598d7255">doggy.add_recipe</a> (input_cuisine, input_name, input_image, input_ingredients)</td></tr>
-<tr class="memdesc:ac0a6d11d1ca54757b79b063c598d7255"><td class="mdescLeft">&#160;</td><td class="mdescRight">Opens json recipes file and reads into df, add recipe based on inputs string cuisine, string dictionary ingredients, and string list steps, and saves df to json file.  <a href="doggy_8py.html#ac0a6d11d1ca54757b79b063c598d7255">More...</a><br /></td></tr>
-<tr class="separator:ac0a6d11d1ca54757b79b063c598d7255"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adb3dca098acdac209cd5a9c558877e54"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="doggy_8py.html#adb3dca098acdac209cd5a9c558877e54">doggy.add_recipe</a> (input_cuisine, input_name, input_image, input_ingredient_list, file_location_database=default_database_location, file_location_cuisines=default_cuisines_location, file_location_ingredients=default_ingredients_location)</td></tr>
+<tr class="memdesc:adb3dca098acdac209cd5a9c558877e54"><td class="mdescLeft">&#160;</td><td class="mdescRight">Opens json recipes file and reads into df, add recipe based on inputs string cuisine, string dictionary ingredients, and string list steps, and saves df to json file.  <a href="doggy_8py.html#adb3dca098acdac209cd5a9c558877e54">More...</a><br /></td></tr>
+<tr class="separator:adb3dca098acdac209cd5a9c558877e54"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abf1cd4b30c29582db008d08dd415dab7"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="doggy_8py.html#abf1cd4b30c29582db008d08dd415dab7">doggy.add_cuisine</a> (input_cuisine, file_location=default_cuisines_location)</td></tr>
 <tr class="memdesc:abf1cd4b30c29582db008d08dd415dab7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Opens csv and reads into list, then appends input string cuisine to list and saves as csv.  <a href="doggy_8py.html#abf1cd4b30c29582db008d08dd415dab7">More...</a><br /></td></tr>
 <tr class="separator:abf1cd4b30c29582db008d08dd415dab7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa77ac5ad6cc9cec0646aadcf7c6fde06"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="doggy_8py.html#aa77ac5ad6cc9cec0646aadcf7c6fde06">doggy.add_ingredient</a> (input_ingredient, input_measurement, file_location=default_ingredients_location)</td></tr>
 <tr class="memdesc:aa77ac5ad6cc9cec0646aadcf7c6fde06"><td class="mdescLeft">&#160;</td><td class="mdescRight">Open ingredients json and reads into dictionary, add elements based on inputs string ingredient, string measurement, then saves to json file.  <a href="doggy_8py.html#aa77ac5ad6cc9cec0646aadcf7c6fde06">More...</a><br /></td></tr>
 <tr class="separator:aa77ac5ad6cc9cec0646aadcf7c6fde06"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a51ea5be3c4f11bb840164074b86878ce"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="doggy_8py.html#a51ea5be3c4f11bb840164074b86878ce">doggy.del_recipe</a> (input_recipe, file_location=default_database_location)</td></tr>
-<tr class="memdesc:a51ea5be3c4f11bb840164074b86878ce"><td class="mdescLeft">&#160;</td><td class="mdescRight">Open recipes database, and removes recipe entry based on recipe input string.  <a href="doggy_8py.html#a51ea5be3c4f11bb840164074b86878ce">More...</a><br /></td></tr>
-<tr class="separator:a51ea5be3c4f11bb840164074b86878ce"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a223669ceaf1128e97c2b7fdbab811181"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="doggy_8py.html#a223669ceaf1128e97c2b7fdbab811181">doggy.del_recipe</a> (input_name, file_location=default_database_location)</td></tr>
+<tr class="memdesc:a223669ceaf1128e97c2b7fdbab811181"><td class="mdescLeft">&#160;</td><td class="mdescRight">Open recipes database, and removes recipe entry based on recipe input string.  <a href="doggy_8py.html#a223669ceaf1128e97c2b7fdbab811181">More...</a><br /></td></tr>
+<tr class="separator:a223669ceaf1128e97c2b7fdbab811181"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a90117e155af30758c426687c1392c549"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="doggy_8py.html#a90117e155af30758c426687c1392c549">doggy.del_cuisine</a> (input_cuisine, file_location=default_cuisines_location)</td></tr>
 <tr class="memdesc:a90117e155af30758c426687c1392c549"><td class="mdescLeft">&#160;</td><td class="mdescRight">Opens cuisine list, checks if input is in list, then removes it and rewrites list to csv.  <a href="doggy_8py.html#a90117e155af30758c426687c1392c549">More...</a><br /></td></tr>
 <tr class="separator:a90117e155af30758c426687c1392c549"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -267,8 +267,8 @@ Libraries/Modules</h1>
 
 </div>
 </div>
-<a id="ac0a6d11d1ca54757b79b063c598d7255"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac0a6d11d1ca54757b79b063c598d7255">&#9670;&nbsp;</a></span>add_recipe()</h2>
+<a id="adb3dca098acdac209cd5a9c558877e54"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adb3dca098acdac209cd5a9c558877e54">&#9670;&nbsp;</a></span>add_recipe()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -295,7 +295,25 @@ Libraries/Modules</h1>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">&#160;</td>
-          <td class="paramname"><em>input_ingredients</em>&#160;</td>
+          <td class="paramname"><em>input_ingredient_list</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>file_location_database</em> = <code>default_database_location</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>file_location_cuisines</em> = <code>default_cuisines_location</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>file_location_ingredients</em> = <code>default_ingredients_location</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -312,6 +330,7 @@ Libraries/Modules</h1>
     <tr><td class="paramname">input_name</td><td>string name representing the name of the recipe </td></tr>
     <tr><td class="paramname">input_image</td><td>file location for the image of the recipe </td></tr>
     <tr><td class="paramname">input_ingredients</td><td>dictionary of string keys and float values, representing </td></tr>
+    <tr><td class="paramname">file_location</td><td>file location that will be opened and read </td></tr>
   </table>
   </dd>
 </dl>
@@ -394,8 +413,8 @@ Libraries/Modules</h1>
 
 </div>
 </div>
-<a id="ae7189d1e3925f8f4d3799a5d2db69f00"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae7189d1e3925f8f4d3799a5d2db69f00">&#9670;&nbsp;</a></span>contain_name()</h2>
+<a id="a23d4adb26ae5202c614f73361ce2bd28"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a23d4adb26ae5202c614f73361ce2bd28">&#9670;&nbsp;</a></span>contain_name()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -404,8 +423,18 @@ Libraries/Modules</h1>
           <td class="memname">def doggy.contain_name </td>
           <td>(</td>
           <td class="paramtype">&#160;</td>
-          <td class="paramname"><em>input_name</em></td><td>)</td>
+          <td class="paramname"><em>input_name</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>file_location</em> = <code>default_database_location</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -418,7 +447,7 @@ Libraries/Modules</h1>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>will return 0 on success </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>will return true if name is in database </dd></dl>
 
 </div>
 </div>
@@ -498,8 +527,8 @@ Libraries/Modules</h1>
 
 </div>
 </div>
-<a id="a51ea5be3c4f11bb840164074b86878ce"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a51ea5be3c4f11bb840164074b86878ce">&#9670;&nbsp;</a></span>del_recipe()</h2>
+<a id="a223669ceaf1128e97c2b7fdbab811181"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a223669ceaf1128e97c2b7fdbab811181">&#9670;&nbsp;</a></span>del_recipe()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -508,7 +537,7 @@ Libraries/Modules</h1>
           <td class="memname">def doggy.del_recipe </td>
           <td>(</td>
           <td class="paramtype">&#160;</td>
-          <td class="paramname"><em>input_recipe</em>, </td>
+          <td class="paramname"><em>input_name</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
