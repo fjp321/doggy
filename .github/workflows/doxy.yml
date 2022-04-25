@@ -3,10 +3,11 @@ name: Doxyggen
 on: [push, pull_request]
 
 jobs:
-        RunDoxygen:
-                runs-on: ubuntu-latest
-                container: python3:9.7
-                steps:
-                        uses: actions/checkout@v2
-                        run:
-                                doxygen Doxyfile
+    RunDoxygen:
+      runs-on: ubuntu-latest
+      container: python3:9.7
+      steps:
+        - uses: actions/checkout@v2
+        - name: gen-doxygen
+          run: |
+            doxygen Doxyfile
