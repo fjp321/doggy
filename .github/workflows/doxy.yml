@@ -1,3 +1,15 @@
-uses: mattnotmitt/doxygen-action@v1.9.2
-with:
-    doxyfile-path: 'docs/Doxygen'
+name: run-tests
+
+on: [push, pull_request]
+
+jobs:
+    RunAllTests:
+      runs-on: ubuntu-latest
+      container: python:3.9.7
+      steps:
+        - uses: mattnotmitt/doxygen-action@v1.9.2
+          with:
+            doxyfile-path: 'docs/Doxygen'
+        - name: run-doxy
+          run: |
+            doxygen docs/Doxygen
