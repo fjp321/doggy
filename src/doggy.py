@@ -81,7 +81,7 @@ def get_database(file_location=default_database_location):
     @param file_location    the file location the function will access to read
     @return string database
     """
-    return pd.read_json(file_location).to_string()
+    return pd.read_json(file_location)
 
 
 def get_cuisines(file_location=default_cuisines_location):
@@ -144,15 +144,31 @@ def contain_ingredient(input_ingredient, file_location=default_ingredients_locat
     return input_ingredient in ingredients_dict.keys()
 
 
-def add_recipe(input_cuisine, input_name, input_image, input_ingredients):
+def add_recipe(input_cuisine, input_name, input_image, input_ingredient_list, file_location=default_database_location):
     """! Opens json recipes file and reads into df, add recipe based on inputs string cuisine, string dictionary ingredients, and string list steps, and saves df to json file
     @param input_cuisine    string representing cuisine of the recipe
     @param input_name   string name representing the name of the recipe
     @param input_image  file location for the image of the recipe
     @param input_ingredients    dictionary of string keys and float values, representing 
+    @param file_location file location that will be opened and read
     @return will return 0 on success
     """
-    print("placeholder")
+    if not isinstance(input_cuisine, str) or not isinstance(input_name, str) or not isinstance(input_ingredient_list, list) or not isinstance(input_name, str):
+        print("input is incorrect data type")
+        return input_error_code
+    if not contain_cuisine(input_cuisine, file_location=file_location):
+        print("cuisine is not in cuisine list")
+        return does_not_exist_error_code
+    for ingredient in input_ingredient_list:
+        if not contain_ingredient(input_ingredient, file_location=file_location):
+            print(ingredient + " does not exist in ingredient databse")
+            return does_not_exist_error_code
+    if contain_recipe(input_name, file_location):
+        print("recipe name already exists")
+        return already_exists_error_code
+    # add recipe image check exists
+
+
 
 
 def add_cuisine(input_cuisine,file_location=default_cuisines_location):
