@@ -15,14 +15,14 @@ class MyTestCase(unittest.TestCase):
     def test_init_database(self):
         doggy.init_db()
         empty_dataframe = pd.DataFrame(columns=["name", "cuisine", "ingredients", "image"])
-        self.assertEqual(doggy.print_database(), empty_dataframe.to_string())
+        self.assertEqual(doggy.get_database().to_string(), empty_dataframe.to_string())
         self.assertEqual(True, exists("database.json"))
 
     def local_init_database(self):
         doggy.database_location = "database.json"
         doggy.init_db()
         empty_dataframe = pd.DataFrame(columns=["name", "cuisine", "ingredients", "image"])
-        #self.assertEqual(doggy.print_database(), empty_dataframe.to_string())
+        self.assertEqual(doggy.print_database().to_string(), empty_dataframe.to_string())
 
 
 

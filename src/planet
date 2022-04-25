@@ -1,0 +1,33 @@
+#!/bin/python3
+import doggy
+import argparse
+import os
+
+# set global variables
+default_file_directory=os.getenv("HOME")
+
+# set up parser
+parser = argparse.ArgumentParser()
+parser.add_argument("-i", "--init", action="store_true", default=False, help="Initialize all databases necessary to ~/.planet")
+parser.add_argument("-a", "--add", action="store_true", default=False, help="Add recipe to database")
+parser.add_argument("-r", "--remove", action="store_true", default=False, help="Delete recipe from database")
+parser.add_argument("-g", "--generate", action="store_true", default=False, help="Generate pdf grocery list")
+parser.add_argument("-I", "--ingredient", action="store_true", default=False, help="Update ingredient database")
+parser.add_argument("-C", "--cuisine", action="store_true", default=False, help="Update cuisine database")
+
+
+# check args
+args = parser.parse_args()
+
+if args.init:
+    print("init flag")
+if args.add:
+    print("add flag")
+if args.remove:
+    print("remove flag")
+if args.generate:
+    print("generate flag")
+if args.ingredient:
+    print("ingredient flag")
+if args.cuisine:
+    print("cuisine flag")
