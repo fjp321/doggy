@@ -132,8 +132,8 @@ def contain_cuisine(input_cuisine, file_location=default_cuisines_location):
     """
     if not (isinstance(input_cuisine, str)):
         print("input is not a string")
-        return input_error_code # maybe change to false for this function
-    cuisine_list = get_cuisines(file_location=file_location)    
+        return false # maybe change to false for this function
+    cuisine_list = get_cuisines(file_location=file_location)
     return input_cuisine in cuisine_list
 
 
@@ -146,7 +146,7 @@ def contain_ingredient(input_ingredient, file_location=default_ingredients_locat
     return input_ingredient in ingredients_dict.keys()
 
 
-def add_recipe(input_cuisine, input_name, input_image, input_ingredient_list, file_location=default_database_location):
+def add_recipe(input_cuisine, input_name, input_image, input_ingredient_list, file_location_database=default_database_location, file_location_cuisines=default_cuisines_location, file_location_ingredients=default_ingredients_location):
     """! Opens json recipes file and reads into df, add recipe based on inputs string cuisine, string dictionary ingredients, and string list steps, and saves df to json file
     @param input_cuisine    string representing cuisine of the recipe
     @param input_name   string name representing the name of the recipe
@@ -158,22 +158,22 @@ def add_recipe(input_cuisine, input_name, input_image, input_ingredient_list, fi
     if not isinstance(input_cuisine, str) or not isinstance(input_name, str) or not isinstance(input_ingredient_list, list) or not isinstance(input_image, str):
         print("input is incorrect data type")
         return input_error_code
-    if not contain_cuisine(input_cuisine, file_location=file_location):
-        print("cuisine is not in cuisine list")
+    if not contain_cuisine(input_cuisine, file_location=file_location_cuisines):
+        print(input_cuisine + " is not in cuisine list")
         return does_not_exist_error_code
     for ingredient in input_ingredient_list:
-        if not contain_ingredient(input_ingredient.keys[0], file_location=file_location):
+        if not contain_ingredient(list(ingredient.keys())[0], file_location=file_location_ingredients):
             print(ingredient + " does not exist in ingredient databse")
             return does_not_exist_error_code
-    if contain_recipe(input_name, file_location):
+    if contain_name(input_name, file_location_database):
         print("recipe name already exists")
         return already_exists_error_code
     # add recipe image check exists
     
-    database_df = pd.read_json(file_location)
-    databse_df.loc[len(df.index)] = [input_name, input_cuisine, input_ingredient_list, input_image]
-    database_file - open(file_location,'w')
-    database_file.write(databse_df.to_json())
+    database_df = pd.read_json(file_location_database)
+    database_df.loc[len(database_df.index)] = [input_name, input_cuisine, input_ingredient_list, input_image]
+    database_file = open(file_location_database,'w')
+    database_file.write(database_df.to_json())
     database_file.close()
 
 
