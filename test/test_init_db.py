@@ -22,7 +22,7 @@ class MyTestCase(unittest.TestCase):
         doggy.database_location = "database.json"
         doggy.init_db()
         empty_dataframe = pd.DataFrame(columns=["name", "cuisine", "ingredients", "image"])
-        #self.assertEqual(doggy.print_database(), empty_dataframe.to_string())
+        self.assertEqual(doggy.print_database(), empty_dataframe.to_string())
 
 
 
