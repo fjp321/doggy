@@ -22,9 +22,9 @@ There is no gui, but there is a command line helper script, planet. The reason t
 
 ## Resources
 
-SQLite: https://en.wikipedia.org/wiki/SQLite
-Cron: https://en.wikipedia.org/wiki/Cron
-Pyqt: https://en.wikipedia.org/wiki/PyQt
++SQLite: https://en.wikipedia.org/wiki/SQLite
++Cron: https://en.wikipedia.org/wiki/Cron
++Pyqt: https://en.wikipedia.org/wiki/PyQt
 
 ## Planned Updates
 
