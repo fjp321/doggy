@@ -113,13 +113,15 @@ def get_ingredients(file_location=default_ingredients_location):
     return ingredients_dict
 
 
-def contain_name(input_name):
+def contain_name(input_name, file_location=default_database_location):
     """! Helper function that will check if a recipe name already exists in the database. 
     @param input_name   string name that will be checked for
     @param file_location    the file location that will be accessed for read
-    @return will return 0 on success
+    @return will return true if name is in database
     """
-    print("placeholder")
+    database_df = pd.read_json(file_location)
+    name_list = list(database_df['name'])
+    return input_name in name_list
 
 
 def contain_cuisine(input_cuisine, file_location=default_cuisines_location):
@@ -153,22 +155,26 @@ def add_recipe(input_cuisine, input_name, input_image, input_ingredient_list, fi
     @param file_location file location that will be opened and read
     @return will return 0 on success
     """
-    if not isinstance(input_cuisine, str) or not isinstance(input_name, str) or not isinstance(input_ingredient_list, list) or not isinstance(input_name, str):
+    if not isinstance(input_cuisine, str) or not isinstance(input_name, str) or not isinstance(input_ingredient_list, list) or not isinstance(input_image, str):
         print("input is incorrect data type")
         return input_error_code
     if not contain_cuisine(input_cuisine, file_location=file_location):
         print("cuisine is not in cuisine list")
         return does_not_exist_error_code
     for ingredient in input_ingredient_list:
-        if not contain_ingredient(input_ingredient, file_location=file_location):
+        if not contain_ingredient(input_ingredient.keys[0], file_location=file_location):
             print(ingredient + " does not exist in ingredient databse")
             return does_not_exist_error_code
     if contain_recipe(input_name, file_location):
         print("recipe name already exists")
         return already_exists_error_code
     # add recipe image check exists
-
-
+    
+    database_df = pd.read_json(file_location)
+    databse_df.loc[len(df.index)] = [input_name, input_cuisine, input_ingredient_list, input_image]
+    database_file - open(file_location,'w')
+    database_file.write(databse_df.to_json())
+    database_file.close()
 
 
 def add_cuisine(input_cuisine,file_location=default_cuisines_location):
