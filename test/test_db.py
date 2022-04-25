@@ -28,7 +28,7 @@ class MyTestCase(unittest.TestCase):
         doggy.add_ingredient("milk", "cup")
         doggy.add_recipe("american", "test recipe", "temp_location", [{"cereal", 0.5}, {"milk", 0.5}])
         test_dataframe = pd.DataFrame([["test_recipe", "american", [{"cereal" : 0.5}, {"milk" : 0.5}], "temp_location"]], columns=["name", "cuisine", "ingredients", "image"])
-        self.assertEqual(doggy.print_database().to_string(), test_dataframe.to_string())
+        self.assertEqual(doggy.get_database().to_string(), test_dataframe.to_string())
 
     def test_something(self):
         self.assertEqual(True, True)  # add assertion here
