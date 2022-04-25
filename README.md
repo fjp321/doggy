@@ -8,7 +8,7 @@ Doggy is a python library for the creation and management of recipe databases. I
 
 To use this library, simply add doggy.py to where ever your python path points. This library will be added to pypi, and when this is implemented, We will update the README. 
 
-## [Documentation]()
+## [Documentation](https://fjp321.github.io/doggy)
 
 ## Design Choices
 
