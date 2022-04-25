@@ -2,19 +2,6 @@
 
 ## What is Doggy
 
-<<<<<<< HEAD
-## Usage
-
-## Design Choices
-
-### Why json instead of SQL
-
-### Why no windows support
-
-### Why no GUI
-
-## Resources
-=======
 Doggy is a python library for the creation and management of recipe databases. It also has functionality for generating randomized grocery lists for a specified number of recipes. 
 
 ## Usage
@@ -39,8 +26,7 @@ SQLite: https://en.wikipedia.org/wiki/SQLite
 Cron: https://en.wikipedia.org/wiki/Cron
 Pyqt: https://en.wikipedia.org/wiki/PyQt
 
-## [Planned Updates]()
->>>>>>> staging
+## Planned Updates
 
 ## Contributors
 fjp321
