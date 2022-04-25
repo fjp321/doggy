@@ -222,14 +222,23 @@ def add_ingredient(input_ingredient, input_measurement, file_location=default_in
     
 
 
-def del_recipe(input_recipe, file_location=default_database_location):
+def del_recipe(input_name, file_location=default_database_location):
     """! Open recipes database, and removes recipe entry based on recipe input string
     @param input_recipe string representing the recipe to be removed
     @param file_location    file location of the database where changes will be written to
     @returns will return 0 on success
     """
-    print("placeholder")
-
+    if not isinstance(input_name, str):
+        print("input name is nto a string")
+        return input_error_code
+    if not contain_name(input_name, file_location=file_location):
+        print("recipe name does not exist, not doing anything")
+        return does_not_exist_error_code
+    database_df = pd.read_json(file_location)
+    database_df = database_df.drop(database_df.index[database_df['name']==input_name].tolist()[0], axis='index')    
+    database_file = open(file_location, 'w')
+    database_file.write(database_df.to_json())
+    database_file.close()
 
 def del_cuisine(input_cuisine, file_location=default_cuisines_location):
     """! Opens cuisine list, checks if input is in list, then removes it and rewrites list to csv
