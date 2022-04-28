@@ -1,9 +1,28 @@
 #!/bin/python3
+
+##
+# @file planet
+#
+# @brief python script for linux command line usage
+#
+# @section description_planet Description
+# Python script for linux command line usage utilizing doggy.py
+# 
+# @section libraries_main Libraries/Modules
+# - doggy
+#   - doggy library for database management
+# - arparse library
+#   - Library for command line interpretation
+# - OS 
+#   - Library necessary to get home directory
+
+# imports
 import doggy
 import argparse
 import os
 
-# set global variables
+# Global Variables
+## Home Directory file location
 default_file_directory=os.getenv("HOME")
 
 # set up parser
