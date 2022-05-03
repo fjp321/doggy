@@ -26,7 +26,7 @@ Currently, we have implemented json and csv files, which are fully loaded to mak
 ### Why no GUI
 
 There is no gui in order to focus efforts on command line implementations. 
-The reason command line is being prioritezed over a gui is so that adding a script with doggy to a [cron job](https://en.wikipedia.org/wiki/Cron)is as simple as possible. 
+The reason command line is being prioritized over a gui is so that adding a script with doggy to a [cron job](https://en.wikipedia.org/wiki/Cron) is as simple as possible. 
 If you want a gui, please look into making one and sharing your implementation.
 In accordance with the MIT license, you can use this repository and redistribute for yourself.
 Consider using [pyqt](https://en.wikipedia.org/wiki/PyQt).
