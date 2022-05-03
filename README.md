@@ -38,7 +38,7 @@ If you run into any issues regarding the doggy functions, please feel free to op
 + Cron: https://en.wikipedia.org/wiki/Cron
 + Pyqt: https://en.wikipedia.org/wiki/PyQt
 
-## Planned Updates
+## [Planned Updates & Projects](https://github.com/fjp321/doggy/projects)
 
 ## Contributors
 fjp321

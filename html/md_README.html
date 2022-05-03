@@ -72,18 +72,24 @@ What is Doggy</h1>
 Usage</h1>
 <p>To use this library, simply add <a class="el" href="doggy_8py.html" title="Wheel file containing functions for database interaction.">doggy.py</a> to where ever your python path points. This library will be added to pypi, and when this is implemented, We will update the README.</p>
 <h1><a class="anchor" id="autotoc_md3"></a>
-&lt;a href="https://fjp321.github.io/doggy"&gt;Documentation&lt;/a&gt;</h1>
+Documentation</h1>
+<p><a href="https://fjp321.github.io/doggy">Documentation Home Page</a></p>
+<p><a href="https://fjp321.github.io/doggy/html/doggy_8py.html">Documentation for Doggy Library</a></p>
 <h1><a class="anchor" id="autotoc_md4"></a>
 Design Choices</h1>
 <h2><a class="anchor" id="autotoc_md5"></a>
 Why SQL instead of json</h2>
-<p>The reason for sql, and by extension python, is for the <a href="https://en.wikipedia.org/wiki/SQLite">sqlite</a> python library, and a database is the better format for a scalability. The goal of Doggy is to manage potentially hundreds of recipes and ingredients, so scalability is incredibly important.</p>
+<p>The reason for sql, and by extension python, is for the <a href="https://en.wikipedia.org/wiki/SQLite">sqlite</a> python library, and a database is the better format for a scalability. The goal of Doggy is to manage potentially hundreds of recipes and ingredients, so scalability is incredibly important. Work is currently being down on the staging and sql branch to deploy this functionality. Currently, we have implemented json and csv files, which are fully loaded to make changes, which is not ideal for overhead.</p>
 <h2><a class="anchor" id="autotoc_md6"></a>
 Why no GUI</h2>
-<p>There is no gui, but there is a command line helper script, planet. The reason this is prioritized over a gui is so that adding this helper script to a <a href="https://en.wikipedia.org/wiki/Cron">cron job</a>is as simple as possible. If you want a gui, please look into making one yourself! Consider using <a href="https://en.wikipedia.org/wiki/PyQt">pyqt</a> If you run into any issues regarding the doggy functions, please feel free to open an issue.</p>
+<p>There is no gui in order to focus efforts on command line implementations. The reason command line is being prioritezed over a gui is so that adding a script with doggy to a <a href="https://en.wikipedia.org/wiki/Cron">cron job</a>is as simple as possible. If you want a gui, please look into making one and sharing your implementation. In accordance with the MIT license, you can use this repository and redistribute for yourself. Consider using <a href="https://en.wikipedia.org/wiki/PyQt">pyqt</a>. If you run into any issues regarding the doggy functions, please feel free to open an issue.</p>
 <h1><a class="anchor" id="autotoc_md7"></a>
 Resources</h1>
-<p>+SQLite: <a href="https://en.wikipedia.org/wiki/SQLite">https://en.wikipedia.org/wiki/SQLite</a> +Cron: <a href="https://en.wikipedia.org/wiki/Cron">https://en.wikipedia.org/wiki/Cron</a> +Pyqt: <a href="https://en.wikipedia.org/wiki/PyQt">https://en.wikipedia.org/wiki/PyQt</a></p>
+<ul>
+<li>SQLite: <a href="https://en.wikipedia.org/wiki/SQLite">https://en.wikipedia.org/wiki/SQLite</a></li>
+<li>Cron: <a href="https://en.wikipedia.org/wiki/Cron">https://en.wikipedia.org/wiki/Cron</a></li>
+<li>Pyqt: <a href="https://en.wikipedia.org/wiki/PyQt">https://en.wikipedia.org/wiki/PyQt</a></li>
+</ul>
 <h1><a class="anchor" id="autotoc_md8"></a>
 Planned Updates</h1>
 <h1><a class="anchor" id="autotoc_md9"></a>

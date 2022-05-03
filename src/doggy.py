@@ -2,7 +2,10 @@
 # @mainpage Doggy Wheel Project
 # 
 # @section descript_main Description
-# Python wheel file for database interaction and initialization for the purpose for recipe management
+# Python wheel file for database interaction and initialization for the purpose for recipe management.
+# The doggy.py file has functions for the initiliazation for each database needed to document a recipe. Ideally, it contains the database for available ingredients, cuisine, and recipes, with each one being able to be interacted with by a user. The interactions include adding and deleting elements, updating elements (where applicable), and returning data types that is usable by python, namely pandas dataframes.
+# The planned future updates can be found at https://github.com/fjp321/doggy/projects. These projects include long term goals (add functionality) and short term goals (add function). 
+#
 
 ## 
 # @file doggy.py
@@ -140,6 +143,7 @@ def contain_cuisine(input_cuisine, file_location=default_cuisines_location):
 def contain_ingredient(input_ingredient, file_location=default_ingredients_location):
     """! Helper function that checks if ingredient is in ingredients dictionary keys list
     @param input_ingredient string that will be checked for in ingredients dictionary key value
+    @param file_location file location of the ingredient database
     @return true if input_ingredient is in dictionary otherwise false
     """
     ingredients_dict = get_ingredients(file_location=file_location)
