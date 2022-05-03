@@ -53,6 +53,7 @@ default_cuisines_location = "cuisines.csv"
 def init_db(file_location=default_database_location):
     """! creates pandas dataframe with needed columns to represent database of recipes and save dataframe to json
     @param file_location    the file location the database will be saved to
+    @return return no_error_code on completion (expect integer)
     """
     # initialize dataframe with name, cuisine, ingredients, and recipe
     database_df = pd.DataFrame(columns=["name", "cuisine", "ingredients", "image"])
@@ -61,11 +62,13 @@ def init_db(file_location=default_database_location):
     database_file = open(file_location, 'w')
     database_file.write(database_df.to_json())
     database_file.close()
+    return no_error_code
 
 
 def init_cuisines(file_location=default_cuisines_location):
     """! saves cuisines csv to initial location
     @param file_location    the file location the cuisines database will be saved to
+    @return return no_error_code on completion (expect integer)
     """
     cuisines_file = open(file_location, 'w')
     cuisines_file.close()
@@ -74,6 +77,7 @@ def init_cuisines(file_location=default_cuisines_location):
 def init_ingredients(file_location=default_ingredients_location):
     """! saves ingredients dictionary to initial location
     @param file_location    the file location the ingredients database will be saved to
+    @return return no_error_code on completion (expect integer)
     """
     ingredients_file = open(file_location, 'w')
     ingredients_file.close()
@@ -82,7 +86,7 @@ def init_ingredients(file_location=default_ingredients_location):
 def get_database(file_location=default_database_location):
     """! helper function to return recipes database as string
     @param file_location    the file location the function will access to read
-    @return string database
+    @return will return pandas dataframe with recipe data (expect dataframe)
     """
     return pd.read_json(file_location)
 
@@ -90,7 +94,7 @@ def get_database(file_location=default_database_location):
 def get_cuisines(file_location=default_cuisines_location):
     """! Helper function to return cuisines list
     @param file_location    the file location the function will access to read
-    @return list of strings representing all available cuisines
+    @return list of strings representing all available cuisines (expect list)
     """
     cuisines_file = open(file_location, 'r')
     csv_reader = csv.reader(cuisines_file, delimiter=',')
@@ -104,7 +108,7 @@ def get_cuisines(file_location=default_cuisines_location):
 def get_ingredients(file_location=default_ingredients_location):
     """! Helper function to return ingredients dictionary
     @param file_location    the file location the function will access to read
-    @return dictionary of string keys and string values for ingredient name and measurement respectively
+    @return dictionary of string keys and string values for ingredient name and measurement respectively (expect dictionary)
     """
     ingredients_file = open(file_location, 'r')
     # added try catch for error handling on empty json file
@@ -120,7 +124,7 @@ def contain_name(input_name, file_location=default_database_location):
     """! Helper function that will check if a recipe name already exists in the database. 
     @param input_name   string name that will be checked for
     @param file_location    the file location that will be accessed for read
-    @return will return true if name is in database
+    @return will return true if name is in database, otherwise false (expect boolean)
     """
     database_df = pd.read_json(file_location)
     name_list = list(database_df['name'])
@@ -131,7 +135,7 @@ def contain_cuisine(input_cuisine, file_location=default_cuisines_location):
     """! Helper function that checks if cuisine is already saved in cuisine list
     @param input_cuisine    string that will be checked for in the ingredient database
     @param file_location    the file location that will be accessed for read
-    @return true if input_cuisine is in list false otherwise 
+    @return true if input_cuisine is in list otherwise false (expect boolean)
     """
     if not (isinstance(input_cuisine, str)):
         print("input is not a string")
@@ -144,20 +148,22 @@ def contain_ingredient(input_ingredient, file_location=default_ingredients_locat
     """! Helper function that checks if ingredient is in ingredients dictionary keys list
     @param input_ingredient string that will be checked for in ingredients dictionary key value
     @param file_location file location of the ingredient database
-    @return true if input_ingredient is in dictionary otherwise false
+    @return true if input_ingredient is in dictionary otherwise false (expect boolean)
     """
     ingredients_dict = get_ingredients(file_location=file_location)
     return input_ingredient in ingredients_dict.keys()
 
 
-def add_recipe(input_cuisine, input_name, input_image, input_ingredient_list, file_location_database=default_database_location, file_location_cuisines=default_cuisines_location, file_location_ingredients=default_ingredients_location):
+def add_recipe(input_cuisine, input_name, input_image, input_ingredient_dict, file_location_database=default_database_location, file_location_cuisines=default_cuisines_location, file_location_ingredients=default_ingredients_location):
     """! Opens json recipes file and reads into df, add recipe based on inputs string cuisine, string dictionary ingredients, and string list steps, and saves df to json file
     @param input_cuisine    string representing cuisine of the recipe
     @param input_name   string name representing the name of the recipe
     @param input_image  file location for the image of the recipe
-    @param input_ingredients    dictionary of string keys and float values, representing 
-    @param file_location file location that will be opened and read
-    @return will return 0 on success
+    @param input_ingredient_dict    dictionary of string keys and float values, representing 
+    @param file_location_database   file location of recipe database that will be written to and read
+    @param file_location_cuisines    file location of cuisines database that will be read
+    @param file_location_ingredients    file location of ingredients database that will be read
+    @return will return no_error_code on success, otherwise error code will be returned (expect integer)
     """
     if not isinstance(input_cuisine, str) or not isinstance(input_name, str) or not isinstance(input_ingredient_list, list) or not isinstance(input_image, str):
         print("input is incorrect data type")
@@ -185,7 +191,7 @@ def add_cuisine(input_cuisine,file_location=default_cuisines_location):
     """! Opens csv and reads into list, then appends input string cuisine to list and saves as csv
     @param input_cuisine    string representing the input cuisine to be added to the database
     @param file_location    file location of the database that the changes will be written to
-    @return will return 0 on success
+    @return will return no_error_code on success, otherwise error code will be returned (expect integer)
     """
     if not isinstance(input_cuisine, str):
         print("input is not string")
@@ -208,7 +214,7 @@ def add_ingredient(input_ingredient, input_measurement, file_location=default_in
     @param input_ingredient string representing the ingredient 
     @param input_measurement    string representing the unit of measurement for the ingredient
     @param file_location    file location of the database that the changes will be written to
-    @return will return 0 on success
+    @return will return no_error_code on success, otherwise error code will be returned (expect integer)
     """
     if not isinstance(input_ingredient,str) or not isinstance(input_measurement,str):
         print("input is not string")
@@ -228,9 +234,9 @@ def add_ingredient(input_ingredient, input_measurement, file_location=default_in
 
 def del_recipe(input_name, file_location=default_database_location):
     """! Open recipes database, and removes recipe entry based on recipe input string
-    @param input_recipe string representing the recipe to be removed
+    @param input_name string representing the recipe to be removed
     @param file_location    file location of the database where changes will be written to
-    @returns will return 0 on success
+    @return will return no_error_code on success, otherwise error code will be returned (expect integer)
     """
     if not isinstance(input_name, str):
         print("input name is nto a string")
@@ -248,7 +254,7 @@ def del_cuisine(input_cuisine, file_location=default_cuisines_location):
     """! Opens cuisine list, checks if input is in list, then removes it and rewrites list to csv
     @param input_cuisine string representing the cusine to be removed from the database
     @param file_location file location of the database where changes will be written to
-    @return will return 0 on success
+    @return will return no_error_code on success, otherwise error code will be returned (expect integer)
     """
     if not isinstance(input_cuisine,str):
         print("input is not string")
@@ -272,7 +278,7 @@ def del_ingredient(input_ingredient, file_location=default_ingredients_location)
     """! Opens ingredients dictionary, checks if input is in dictionary, then removes it and rewrites json
     @param input_ingredient string that represents teh input ingredient to be deleted
     @param file_location    file location that represents the database that will be updated
-    @return will return 0 on success
+    @return will return no_error_code on success, otherwise error code will be returned (expect integer)
     """
     if not isinstance(input_ingredient,str):
         print("input is not string")
@@ -293,7 +299,7 @@ def update_ingredient(input_ingredient, input_measurement, file_location=default
     @param input_ingredient string representing ingredient that will updated
     @param input_measurement    string representing measurement associated with ingredient
     @param file_location    file representing the database that will be updated
-    @return will return 0 on success
+    @return will return no_error_code on success, otherwise error code will be returned (expect integer)
     """
     if not isinstance(input_ingredient,str):
         print("input is not string")
@@ -307,12 +313,3 @@ def update_ingredient(input_ingredient, input_measurement, file_location=default
     ingredient_file.write(json.dumps(ingredient_dict))
     ingredient_file.close()
     return no_error_code
-
-
-def get_database(file_location=default_database_location):
-    """! Helper function that will return the database as a dataframe
-    @param file_location location of the database that will be accessed and returned
-    @return dataframe that represents the recipe database
-    """
-    return pd.read_json(file_location)
-
