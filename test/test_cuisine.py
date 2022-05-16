@@ -2,7 +2,7 @@ import unittest
 import sys
 sys.path.append('../')
 import pandas as pd
-import src.doggy as doggy
+import src.doggyrecipe as doggy
 from os.path import exists
 
 

@@ -1,5 +1,11 @@
-rm data.json
-python3 init-db.py
-python3 add-element.py ingredients.txt recipe.txt
-python3 add-element.py ingredients.txt recipe.txt
+database1=cuisines.csv
+database2=database.json
+database3=ingredients.json
 
+for test_file in ./*.py; do 
+	python3 ${test_file}
+	echo
+	echo - test end - 
+	echo
+	rm -f $database1 $database2 $database3
+done

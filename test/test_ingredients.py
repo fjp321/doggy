@@ -6,7 +6,7 @@ import sys
 sys.path.append('../')
 # import doggy
 import pandas as pd
-import src.doggy as doggy
+import src.doggyrecipe as doggy
 from os.path import exists
 
 
@@ -15,7 +15,7 @@ class MyTestCase(unittest.TestCase):
         doggy.init_ingredients()
         empty_ingredient = {}
         self.assertEqual(doggy.get_ingredients(), empty_ingredient)
-        self.assertEqual(True, exists("cuisines.csv"))
+        self.assertEqual(True, exists("ingredients.json"))
 
     def test_add_cuisine(self):
         doggy.init_ingredients()

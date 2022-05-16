@@ -5,9 +5,9 @@ import unittest
 import sys
 sys.path.append('../')
 # import doggy
-from src.doggy import init_db as test_init_db
+from src.doggyrecipe import init_db as test_init_db
 import pandas as pd
-import src.doggy as doggy
+import src.doggyrecipe as doggy
 from os.path import exists
 
 
